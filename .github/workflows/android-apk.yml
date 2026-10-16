@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - feat/local-avatar-android-tts
 
 permissions:
   contents: read
@@ -33,6 +34,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run local avatar tests
+        run: node --test tests/*.test.mjs
 
       - name: Make Gradle executable
         run: chmod +x android/gradlew
